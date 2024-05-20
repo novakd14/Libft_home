@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:11:28 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 15:53:00 by dnovak           ###   ########.fr       */
+/*   Created: 2024/05/20 16:03:25 by dnovak            #+#    #+#             */
+/*   Updated: 2024/05/20 16:23:30 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	int	l_len;
+	int	i;
+	int	j;
+
+	l_len = ft_strlen(little);
+	if (l_len == 0)
+		return (big);
+	i = 0;
+	while (i < len && *(big + i))
+	{
+		if (*(big + i) == *little)
+		{
+			j = 1;
+			while (*(big + i + j) == *(little + j) && *(little + j))
+				j++;
+			if (j == l_len)
+				return (big + i);
+		}
+		i++;
+	}
+	return (NULL);
 }

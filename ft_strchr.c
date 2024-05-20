@@ -6,13 +6,13 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:04 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 15:25:12 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/20 15:53:39 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	int	i;
 

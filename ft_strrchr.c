@@ -6,16 +6,16 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:23:53 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 15:28:49 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/20 15:53:53 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
-	int len;
+	int	len;
 
 	len = ft_strlen(s);
 	i = 0;
