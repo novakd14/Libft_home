@@ -6,11 +6,11 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:08:27 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 15:12:37 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/20 15:53:06 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);

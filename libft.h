@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:14:54 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 15:29:02 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/20 16:25:54 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
-int		toupper(int c);
-int		tolower(int c);
-char	*strchr(const char *s, int c);
-char *strrchr(const char *s, int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+int		ft_atoi(const char *nptr);
 
 #endif //LIBFT_H
