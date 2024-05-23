@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:03:25 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 16:23:30 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/21 00:39:35 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	l_len;
-	int	i;
-	int	j;
+	size_t	l_len;
+	size_t	i;
+	size_t	j;
 
 	l_len = ft_strlen(little);
 	if (l_len == 0)
-		return (big);
+		return ((char *) big);
 	i = 0;
 	while (i < len && *(big + i))
 	{
@@ -30,7 +30,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			while (*(big + i + j) == *(little + j) && *(little + j))
 				j++;
 			if (j == l_len)
-				return (big + i);
+				return ((char *) big + i);
 		}
 		i++;
 	}
