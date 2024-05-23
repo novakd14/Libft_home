@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:14:04 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/20 15:53:39 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/21 00:38:47 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (*(s + i))
 	{
 		if (*(s + i) == c)
-			return (s + i);
+			return ((char *) s + i);
 		i++;
 	}
 	return (NULL);
