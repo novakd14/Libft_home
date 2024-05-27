@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:30:55 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/22 15:30:56 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:07:00 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 	char	*num_str;
 
 	len = ft_intlen(n);
-	num_str = (char *) malloc(sizeof(char) * (len + 1));
+	num_str = (char *) malloc(sizeof (char) * (len + 1));
 	if (num_str == NULL)
 		return (NULL);
 	*(num_str + len--) = '\0';

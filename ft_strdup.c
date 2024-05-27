@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 00:21:32 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/21 13:46:25 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:06:02 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	char	*ptr;
 
 	len = ft_strlen(s);
-	ptr = (char *) malloc(sizeof(char) * (len + 1));
+	ptr = (char *) malloc(sizeof (char) * (len + 1));
 	if (ptr == NULL)
 		return (NULL);
 	ft_strlcpy(ptr, s, len + 1);

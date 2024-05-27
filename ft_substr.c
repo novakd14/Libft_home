@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:48:59 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/21 16:16:05 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:06:58 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	while (*(s + start + min_len))
 		if (min_len == len)
 			break ;
-	sstr = (char *) malloc(sizeof(char) * (min_len + 1));
+	sstr = (char *) malloc(sizeof (char) * (min_len + 1));
 	if (sstr == NULL)
 		return (NULL);
 	min_len = 0;
