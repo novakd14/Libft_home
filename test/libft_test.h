@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:44:22 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 14:20:06 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 15:54:45 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,46 +17,50 @@
 # include <ctype.h> //isalpha, isdigit, isalnum, isprint
 # include <string.h> //strlen, memset
 
-int		ft_isalpha_test(void);
-int		ft_isdigit_test(void);
-int		ft_isalnum_test(void);
-int		ft_isascii_test(void);
-int		ft_isprint_test(void);
-int		ft_strlen_test(void);
-int		ft_strlcpy_test(void);
-int		ft_strlcat_test(void);
-int		ft_toupper_test(void);
-int		ft_tolower_test(void);
-int		ft_strchr_test(void);
-int		ft_strrchr_test(void);
-int		ft_strncmp_test(void);
-int		ft_strnstr_test(void);
-int		ft_atoi_test(void);
-int		ft_memset_test(void);
-int		ft_bzero_test(void);
-int		ft_memcpy_test(void);
-int		ft_memmove_test(void);
-int		ft_memchr_test(void);
-int		ft_memcmp_test(void);
-int		ft_calloc_test(void);
-int		ft_strdup_test(void);
-int		ft_substr_test(void);
-int		ft_strjoin_test(void);
-int		ft_strtrim_test(void);
-int		ft_split_test(void);
-int		ft_itoa_test(void);
-int		ft_strmapi_test(void);
-int		ft_striteri_test(void);
-int		ft_putchar_fd_test(void);
-int		ft_putstr_fd_test(void);
-int		ft_putendl_fd_test(void);
-int		ft_putnbr_fd_test(void);
+int		ft_isalpha_test(int full);
+int		ft_isdigit_test(int full);
+int		ft_isalnum_test(int full);
+int		ft_isascii_test(int full);
+int		ft_isprint_test(int full);
+int		ft_strlen_test(int full);
+int		ft_strlcpy_test(int full);
+int		ft_strlcat_test(int full);
+int		ft_toupper_test(int full);
+int		ft_tolower_test(int full);
+int		ft_strchr_test(int full);
+int		ft_strrchr_test(int full);
+int		ft_strncmp_test(int full);
+int		ft_strnstr_test(int full);
+int		ft_atoi_test(int full);
+int		ft_memset_test(int full);
+int		ft_bzero_test(int full);
+int		ft_memcpy_test(int full);
+int		ft_memmove_test(int full);
+int		ft_memchr_test(int full);
+int		ft_memcmp_test(int full);
+int		ft_calloc_test(int full);
+int		ft_strdup_test(int full);
+int		ft_substr_test(int full);
+int		ft_strjoin_test(int full);
+int		ft_strtrim_test(int full);
+int		ft_split_test(int full);
+int		ft_itoa_test(int full);
+int		ft_strmapi_test(int full);
+int		ft_striteri_test(int full);
+int		ft_putchar_fd_test(int full);
+int		ft_putstr_fd_test(int full);
+int		ft_putendl_fd_test(int full);
+int		ft_putnbr_fd_test(int full);
 
 //Print functions
-void	ft_print_success(void);
+void	ft_print_success_short(int count);
 void	ft_print_fail(int index, char type, void *test, void *ref);
+void	ft_print_success(int index, char type, void *test, void *ref);
 void	ft_print_bold(char *msg);
 void	ft_print_rate(int success, int max, int all);
 int		ft_print_tmp(void);
+
+//Visual fucntions
+void	ft_test_header(char *msg);
 
 #endif //LIBFT_TEST_H

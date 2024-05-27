@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset_test.c                                   :+:      :+:    :+:   */
+/*   visual_fnc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 15:58:15 by dnovak           ###   ########.fr       */
+/*   Created: 2024/05/27 15:04:47 by dnovak            #+#    #+#             */
+/*   Updated: 2024/05/27 15:19:07 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 
-// Rename in name of function and printf
-int	ft_memset_test(int full)
+void	ft_test_header(char *msg)
 {
-	int		check;
-	int		index;
+	unsigned int	i;
+	unsigned int	len;
 
-	check = 1;
-	index = 1;
-	(void) index;
-	ft_print_bold("ft_memset_test\n");
-	check *= ft_print_tmp();
-	if (check == 1)
+	len = strlen(msg);
+	if (len == 0)
 	{
-		if (full == 0)
-			ft_print_success_short(index - 1);
-		return (1);
+		printf("Unit test\n==========\n");
+		return ;
 	}
-	else
-		return (0);
+	printf("%s\n", msg);
+	i = 0;
+	while (i++ < len + 1)
+		printf("=");
+	printf("\n");
 }

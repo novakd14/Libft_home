@@ -2,7 +2,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 NAME = test.exe
-SRCS = main_test.c print_fnc.c ft_isalpha_test.c ft_isdigit_test.c ft_isalnum_test.c ft_isascii_test.c ft_isprint_test.c \
+SRCS = main_test.c print_fnc.c visual_fnc.c ft_isalpha_test.c ft_isdigit_test.c ft_isalnum_test.c ft_isascii_test.c ft_isprint_test.c \
 	ft_strlen_test.c ft_memset_test.c ft_bzero_test.c ft_memcpy_test.c ft_memmove_test.c \
 	ft_strlcpy_test.c ft_strlcat_test.c ft_toupper_test.c ft_tolower_test.c ft_strchr_test.c \
 	ft_strrchr_test.c ft_strncmp_test.c ft_memchr_test.c ft_memcmp_test.c ft_strnstr_test.c \
@@ -30,3 +30,7 @@ libft.a:
 test: $(NAME)
 	clear
 	./test.exe
+
+ftest: $(NAME)
+	clear
+	./test.exe 1

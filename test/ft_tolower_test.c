@@ -6,14 +6,14 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 14:26:28 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 15:58:15 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 
 // Rename in name of function and printf
-int	ft_tolower_test(void)
+int	ft_tolower_test(int full)
 {
 	int				check;
 	int				index;
@@ -25,7 +25,8 @@ int	ft_tolower_test(void)
 	check *= ft_print_tmp();
 	if (check == 1)
 	{
-		ft_print_success();
+		if (full == 0)
+			ft_print_success_short(index - 1);
 		return (1);
 	}
 	else
