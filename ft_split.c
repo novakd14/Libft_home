@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:47:07 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/22 15:03:35 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:06:02 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**ft_pop_array(char **array, char const *s, char c)
 	count = 0;
 	if (*s == c)
 	{
-		*array = (char *) malloc(sizeof(char));
+		*array = (char *) malloc(sizeof (char));
 		if (ft_check_array(array, 0) == 0)
 			return (NULL);
 		count++;
@@ -78,7 +78,7 @@ static char	**ft_pop_array(char **array, char const *s, char c)
 		if (*(s + i) == c)
 			i++;
 		len = ft_strlen_del(s + i, c);
-		*(array + count) = (char *) malloc(sizeof(char) * (len + 1));
+		*(array + count) = (char *) malloc(sizeof (char) * (len + 1));
 		if (ft_check_array(array, count) == 0)
 			return (NULL);
 		ft_strlcpy(*(array + count), s + i, len + 1);
@@ -94,7 +94,7 @@ char	**ft_split(char const *s, char c)
 	char	**array;
 
 	count = ft_count_words(s, c);
-	array = (char **) malloc(sizeof(char *) * (count + 1));
+	array = (char **) malloc(sizeof (char *) * (count + 1));
 	if (array == NULL)
 		return (NULL);
 	*(array + count) = NULL;

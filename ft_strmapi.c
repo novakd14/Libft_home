@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:38:09 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/22 15:38:33 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:06:02 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*str;
 
 	len = ft_strlen(s);
-	str = (char *) malloc(sizeof(char) * (len + 1));
+	str = (char *) malloc(sizeof (char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	len = 0;

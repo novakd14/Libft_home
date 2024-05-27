@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:36:15 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/22 13:45:25 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/24 17:06:02 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			len++;
 		i++;
 	}
-	str = (char *) malloc(sizeof(char) * (len + 1));
+	str = (char *) malloc(sizeof (char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
 	len = 0;
