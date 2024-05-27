@@ -6,13 +6,14 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 15:58:15 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:43:18 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 
-// Rename in name of function and printf
+// int	test1 (int full, int index, )
+
 int	ft_bzero_test(int full)
 {
 	int	check;

@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 15:58:15 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 18:29:24 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ static int	test_compare(int full, int index, int c)
 	if (test == ref)
 	{
 		if (full == 1)
-			ft_print_success(index, 'i', &test, &ref);
+			ft_print_success(index, 'i', &c, 'i', &test, &ref);
 		return (1);
 	}
 	else
 	{
-		ft_print_fail(index, 'i', &test, &ref);
+		ft_print_fail(index, 'i', &c, 'i', &test, &ref);
 		return (0);
 	}
 }
