@@ -6,20 +6,20 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 03:05:44 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 12:39:06 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 15:49:20 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_test.h"
 
-void	ft_print_success(void)
+void	ft_print_success_short(int count)
 {
 	printf("\033[0;32m");
-	printf(" All tests succesful.\n");
+	printf(" All tests passed (%i)\n", count);
 	printf("\033[0m");
 }
 
-static void	ft_print_fail_int(int *test, int *ref)
+static void	ft_print_test_int(int *test, int *ref)
 {
 	printf("test >>>%i<<< | ref >>>%i<<<", *test, *ref);
 }
@@ -29,8 +29,18 @@ void	ft_print_fail(int index, char type, void *test, void *ref)
 	printf("\033[0;31m");
 	printf(" Test %i: ", index);
 	if (type == 'i')
-		ft_print_fail_int(test, ref);
-	printf("<<<\n");
+		ft_print_test_int(test, ref);
+	printf(" FAILED\n");
+	printf("\033[0m");
+}
+
+void	ft_print_success(int index, char type, void *test, void *ref)
+{
+	printf(" Test %i: ", index);
+	if (type == 'i')
+		ft_print_test_int(test, ref);
+	printf("\033[0;32m");
+	printf(" PASSED\n");
 	printf("\033[0m");
 }
 
@@ -48,14 +58,14 @@ void	ft_print_rate(int success, int max, int all)
 		printf("\033[0;32m");
 	else
 		printf("\033[0;31m");
-	printf("%i of %i (%i) succesful.\n", success, max, all);
+	printf("%i of %i (%i) functions succesful.\n", success, max, all);
 	printf("\033[0m");
 }
 
 int	ft_print_tmp(void)
 {
 	printf("\033[0;31m");
-	printf(" Prepare test!!!\n");
+	printf(" Create a test!!!\n");
 	printf("\033[0m");
 	return (0);
 }

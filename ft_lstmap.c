@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 19:50:26 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/23 20:18:46 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 14:49:37 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_list;
 	t_list	*orig;
 	t_list	*new;
-
 
 	if (lst == NULL)
 		return (NULL);
