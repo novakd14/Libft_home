@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:44:28 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 15:50:54 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:49:31 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	int full;
 	int	count;
 	int	max;
-
 	(void) argv;
 	ft_test_header("Test for the 42cursus libft project.");
 	if (argc != 2)
@@ -95,5 +94,10 @@ int	main(int argc, char **argv)
 	max++;
 	count += ft_putnbr_fd_test(full);
 	max++;
-	ft_print_rate(count, max, 34);
+	ft_print_rate(count, max, 34 + 9);
+
+	int	array[] = {1000000,2000000,3000000,400};
+
+	ft_putnbytes(array, 10);
+	printf("\n");
 }

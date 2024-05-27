@@ -6,16 +6,18 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:44:22 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 15:54:45 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/27 19:39:25 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_TEST_H
 # define LIBFT_TEST_H
-# include "../libft.h" //library
-# include <stdio.h> //printf
-# include <ctype.h> //isalpha, isdigit, isalnum, isprint
-# include <string.h> //strlen, memset
+# include "../libft.h"	// library
+# include <stdio.h>		// printf
+# include <ctype.h>		// isalpha, isdigit, isalnum, isprint
+# include <string.h>	// strlen, memset, memcmp, strncmp
+# include <stdlib.h>	// atoi
+# include <strings.h>	// bzero
 
 int		ft_isalpha_test(int full);
 int		ft_isdigit_test(int full);
@@ -54,11 +56,12 @@ int		ft_putnbr_fd_test(int full);
 
 //Print functions
 void	ft_print_success_short(int count);
-void	ft_print_fail(int index, char type, void *test, void *ref);
-void	ft_print_success(int index, char type, void *test, void *ref);
+void	ft_print_fail(int index, char itype, void *input, char type, void *test, void *ref);
+void	ft_print_success(int index, char itype, void *input, char type, void *test, void *ref);
 void	ft_print_bold(char *msg);
 void	ft_print_rate(int success, int max, int all);
 int		ft_print_tmp(void);
+void	ft_putnbytes(void *start, size_t n);
 
 //Visual fucntions
 void	ft_test_header(char *msg);
