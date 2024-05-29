@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:25:59 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 16:58:37 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 11:03:34 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	ft_isspace(int c)
 // amount of white space (as determined by isspace(3)) followed by a single
 // optional '+' or '-' sign.
 // RETURN VALUE: The converted value or 0 on error.
+// NOTES: If ntpr == NULL return Segmentation fault
 int	ft_atoi(const char *nptr)
 {
 	size_t	i;

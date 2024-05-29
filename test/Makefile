@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = test.exe
 SRCS = main_test.c print_fnc.c visual_fnc.c ft_isalpha_test.c ft_isdigit_test.c ft_isalnum_test.c ft_isascii_test.c ft_isprint_test.c \
@@ -29,8 +29,11 @@ libft.a:
 
 test: $(NAME)
 	clear
-	./test.exe
+	./$(NAME)
 
 ftest: $(NAME)
 	clear
-	./test.exe 1
+	./$(NAME) full
+
+memleak: $(NAME)
+	valgrind --leak-check=full ./$(NAME)
