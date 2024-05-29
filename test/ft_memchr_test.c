@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 10:54:31 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 19:31:47 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,97 @@
 #include "libft_test.h"
 
 // Print inputs of tested function
-static void	ft_putfncinput(char *name, void *s, int c, size_t n)
+static void	ft_putfncinput1(char *name, char *s, int c, size_t n)
 {
 	printf("\033[36m");
-	printf("%s(%p, %i, %li)", name, s, c, n);
+	printf("%s(\"%s\", \'%c\', %li)", name, s, c, n);
 	printf("\033[0m");
+}
+
+static int	test_str(int index, int full, char *name, void *s, int c, size_t n)
+{
+	// 1. Setting up input
+	// As a parameter
+
+	// 2. TEST
+	int		check = 0;
+	void	*uptr;
+	void	*eptr;
+
+	uptr = ft_memchr(s, c, n);
+	eptr = memchr(s, c, n);
+	if (uptr == eptr)
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput1(name, s, c, n); //NEED to change this function
+		printf(" -> ");
+		if (uptr != NULL || eptr != NULL)
+			printf("start: %p, ", s);
+		printf("users: %p", uptr);
+		if (uptr != NULL)
+			printf(" (%li)", uptr - s);
+		printf(", expected: %p", eptr);
+		if (eptr != NULL)
+			printf(" (%li)", eptr - s);
+		printf("\n");
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	if (check == 1)
+		return (1);
+	else
+		return (0);
+}
+
+static int	test_NULL(int index, int full, char *name, void *s, int c, size_t n)
+{
+	// 1. Setting up input
+	// As a parameter
+
+	// 2. TEST
+	int		check = 0;
+	void	*uptr;
+	void	*eptr;
+
+	uptr = ft_memchr(s, c, n);
+	eptr = NULL;
+	if (uptr == eptr)
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput1(name, s, c, n); //NEED to change this function
+		printf(" -> ");
+		if (uptr != NULL || eptr != NULL)
+			printf("start: %p, ", s);
+		printf("users: %p", uptr);
+		if (uptr != NULL)
+			printf(" (%li)", uptr - s);
+		printf(", expected: %p", eptr);
+		if (eptr != NULL)
+			printf(" (%li)", eptr - s);
+		printf("\n");
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	if (check == 1)
+		return (1);
+	else
+		return (0);
 }
 
 // MAIN function for all tests
@@ -37,7 +123,13 @@ int	ft_memchr_test(int full)
 	printf("\n\n");
 
 	// Tests -> add in format: check *= test1(index++, full, name);
-	ft_putfncinput(name, name, 42, 10);
+	check *= test_str(index++, full, name, "42Prague", 'P', 8);
+	check *= test_str(index++, full, name, "12345", '4', 5);
+	check *= test_str(index++, full, name, "1234547", '4', 7);
+	check *= test_str(index++, full, name, "1234547", '4', 3);
+	check *= test_str(index++, full, name, "1234547", '4', 0);
+	check *= test_str(index++, full, name, "12345", '6', 5);
+	check *= test_NULL(index++, full, name, NULL, '6', 5);
 
 	// Check style of output and print end of section
 	if (index == 1)

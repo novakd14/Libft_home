@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:30:55 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/28 15:52:27 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 18:42:33 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ static size_t	ft_intlen(int n)
 	return (len);
 }
 
+// Allocates (with malloc(3)) and returns a string representing the integer
+// received as an argument. Negative numbers must be handled.
+// RETURN VALUE: The string representing the integer. NULL if the allocation
+// fails.
 char	*ft_itoa(int n)
 {
 	size_t	len;
