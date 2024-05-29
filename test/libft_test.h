@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:44:22 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 12:43:19 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:08:53 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <string.h>	// strlen, strncmp, memset, memcmp, memcpy
 # include <stdlib.h>	// atoi, calloc, malloc, free
 # include <strings.h>	// bzero
+
+# define SIGN(x) ( ((x) != 0) ? (((x) > 0) ? 1 : -1) : 0)
 
 int		ft_isalpha_test(int full);
 int		ft_isdigit_test(int full);

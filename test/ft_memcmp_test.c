@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 10:54:31 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 20:10:58 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,79 @@
 #include "libft_test.h"
 
 // Print inputs of tested function
-static void	ft_putfncinput(char *name, void *s1, void *s2, size_t n)
+static void	ft_putfncinput1(char *name, char *s1, char *s2, size_t n)
 {
 	printf("\033[36m");
-	printf("%s(%p, %p, %li)", name, s1, s2, n);
+	printf("%s(\"%s\", \"%s\", %li)", name, s1, s2, n);
 	printf("\033[0m");
+}
+
+static int	test_str(int index, int full, char *name, void *s1, void *s2, size_t n)
+{
+	// 1. Setting up input
+	// As a parameter
+
+	// 2. TEST
+	int	check = 0;
+	int	users;
+	int	expect;
+
+	users = ft_memcmp(s1, s2, n);
+	expect = ft_memcmp(s1, s2, n);
+	if (SIGN(users) == SIGN(expect))
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput1(name, s1, s2, n); //NEED to change this function
+		printf(" -> ");
+		printf("users sign: %i, expected sign: %i\n", SIGN(users), SIGN(expect));
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	if (check == 1)
+		return (1);
+	else
+		return (0);
+}
+
+static int	test_NULL(int index, int full, char *name, void *s1, void *s2, size_t n, int expect)
+{
+	// 1. Setting up input
+	// As a parameter
+
+	// 2. TEST
+	int	check = 0;
+	int	users;
+
+	users = ft_memcmp(s1, s2, n);
+	if (SIGN(users) == SIGN(expect))
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput1(name, s1, s2, n); //NEED to change this function
+		printf(" -> ");
+		printf("users sign: %i, expected sign: %i\n", SIGN(users), SIGN(expect));
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	if (check == 1)
+		return (1);
+	else
+		return (0);
 }
 
 // MAIN function for all tests
@@ -37,7 +105,18 @@ int	ft_memcmp_test(int full)
 	printf("\n\n");
 
 	// Tests -> add in format: check *= test1(index++, full, name);
-	ft_putfncinput(name, name, name + 1, 42);
+	check *= test_str(index++, full, name, "12345", "12345", 5);
+	check *= test_str(index++, full, name, "12343", "12345", 5);
+	check *= test_str(index++, full, name, "12343", "1234a", 5);
+	check *= test_str(index++, full, name, "1234!", "12345", 5);
+	check *= test_str(index++, full, name, "12345", "12343", 5);
+	check *= test_str(index++, full, name, "12345", "12343", 4);
+	check *= test_str(index++, full, name, "12345", "12343", 0);
+	check *= test_str(index++, full, name, "12345", NULL, 0);
+	check *= test_NULL(index++, full, name, "12345", NULL, 1, 1);
+	check *= test_NULL(index++, full, name, NULL, "12345", 1, -1);
+	check *= test_NULL(index++, full, name, NULL, NULL, 1, 0);
+
 
 	// Check style of output and print end of section
 	if (index == 1)
