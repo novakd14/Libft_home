@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:55:12 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 17:36:35 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 12:37:44 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 // at the location pointed to by s, by writing zeros (bytes containing '\0') to
 // that area.
 // RETURN VALUE: None.
+// NOTES: Doesn't take NULL pointer and read-only strings!
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;
 	size_t			i;
 
+	// if (s == NULL)
+	// 	return ;
 	ptr = (unsigned char *) s;
 	i = 0;
 	while (i < n)

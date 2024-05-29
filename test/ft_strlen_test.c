@@ -6,50 +6,52 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/27 18:33:27 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 10:54:31 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// 1.	Change strlen to name of your function.
+// 2.	In ft_putfncinput change number of parameters for your function
+// 3.	Add your tests, don't forget to add them in ft_strlen_test
+//		to Tests section in format: check *= test1(index++, full, name);
+
 #include "libft_test.h"
 
-static int	test_compare(int full, int index, char *c)
+// Print inputs of tested function
+static void	ft_putfncinput(char *name, char *s)
 {
-	int	test;
-	int	ref;
-
-	test = ft_strlen(c);
-	ref = strlen(c);
-	if (test == ref)
-	{
-		if (full == 1)
-			ft_print_success(index, 's', c, 'i', &test, &ref);
-		return (1);
-	}
-	else
-	{
-		ft_print_fail(index, 's', c, 'i', &test, &ref);
-		return (0);
-	}
+	printf("\033[36m");
+	printf("%s(\"%s\")", name, s);
+	printf("\033[0m");
 }
 
+// MAIN function for all tests
 int	ft_strlen_test(int full)
 {
-	int	check;
-	int	index;
+	char	*name = "ft_strlen_test";
+	int		check = 1;
+	int		index = 1;
 
-	check = 1;
-	index = 1;
-	ft_print_bold("ft_strlen_test\n");
-	check *= test_compare(full, index++, "");
-	check *= test_compare(full, index++, " ");
-	check *= test_compare(full, index++, "Hello");
-	check *= test_compare(full, index++, "Hello world!");
-	if (check == 1)
+	// Print start of section
+	ft_print_colored(name, "white", 1);
+	printf("\n\n");
+
+	// Tests -> add in format: check *= test1(index++, full, name);
+	ft_putfncinput(name, "42Prague");
+
+	// Check style of output and print end of section
+	if (index == 1)
 	{
-		if (full == 0)
-			ft_print_success_short(index - 1);
-		return (1);
+		check = 0;
+		ft_print_tmp();
 	}
+	if (check == 1 && full == 0)
+		ft_print_success_short(index - 1);
+	printf("\n\n");
+
+	// Return value PASS/FAIL
+	if (check == 1)
+		return (1);
 	else
 		return (0);
 }
