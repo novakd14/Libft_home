@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 10:54:31 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 02:31:45 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,65 @@ static void	ft_putfncinput(char *name, void *s, int c, size_t n)
 	printf("\033[0m");
 }
 
+static int	test1(int index, int full, char *name, size_t size, int c, size_t n)
+{
+	// 1. Setting up input
+	void	*umem = malloc(size);
+	if (umem == NULL)
+	{
+		ft_print_colored("MEM", "orange", 0);
+		printf("\tTest %i: malloc fail\n", index);
+		return (0);
+	}
+	bzero(umem, size);
+	void	*emem = malloc(size);
+	if (emem == NULL)
+	{
+		ft_print_colored("MEM", "orange", 0);
+		printf("\tTest %i: malloc fail\n", index);
+		return (0);
+	}
+	bzero(emem, size);
+
+	// 2. TEST
+	int check = 0;
+
+	ft_memset(umem, c, n);
+	memset(emem, c, n);
+	if (memcmp(umem, emem, size) == 0)
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput(name, umem, c, n); //NEED to change this function
+		printf(" ->\n");
+		ft_print_colored(" users:\n ", "yellow", 0);
+		ft_print_mem(umem, size);
+		printf("\t-> ");
+		ft_print_memchar(umem, size);
+		printf("\n");
+		ft_print_colored(" expected:\n ", "yellow", 0);
+		ft_print_mem(emem, size);
+		printf("\t-> ");
+		ft_print_memchar(umem, size);
+		printf("\n");
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	free(umem);
+	free(emem);
+	if (check == 1)
+		return (1);
+	else
+		return (0);
+}
+
 // MAIN function for all tests
 int	ft_memset_test(int full)
 {
@@ -37,7 +96,11 @@ int	ft_memset_test(int full)
 	printf("\n\n");
 
 	// Tests -> add in format: check *= test1(index++, full, name);
-	ft_putfncinput(name, name, 'F', 20);
+	check *= test1(index++, full, name, 6, 'a', 6);
+	check *= test1(index++, full, name, 6, 0, 6);
+	check *= test1(index++, full, name, 6, -1, 6);
+	check *= test1(index++, full, name, 6, 'a', 0);
+	check *= test1(index++, full, name, 6, 'a', 1);
 
 	// Check style of output and print end of section
 	if (index == 1)

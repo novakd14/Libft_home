@@ -6,21 +6,23 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:44:22 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 20:08:53 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/31 20:17:43 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_TEST_H
 # define LIBFT_TEST_H
-# include "../libft.h"	// library
-# include <stdio.h>		// printf
-# include <ctype.h>		// isalpha, isdigit, isalnum, isprint, tolower
-# include <string.h>	// strlen, strncmp, memset, memcmp, memcpy
-# include <stdlib.h>	// atoi, calloc, malloc, free
-# include <strings.h>	// bzero
+# include "../libft.h"		// library -> stdlib (atoi, calloc, malloc, free), unistd (read, close)
+# include <stdio.h>			// printf
+# include <ctype.h>			// isalpha, isdigit, isalnum, isprint, tolower
+# include <string.h>		// strlen, strncmp, memset, memcmp, memcpy, strlcat
+# include <bsd/string.h>	// strlcat
+# include <strings.h>		// bzero
+# include <fcntl.h>			// open
 
 # define SIGN(x) ( ((x) != 0) ? (((x) > 0) ? 1 : -1) : 0)
 
+// Mandatory functions
 int		ft_isalpha_test(int full);
 int		ft_isdigit_test(int full);
 int		ft_isalnum_test(int full);
@@ -56,7 +58,18 @@ int		ft_putstr_fd_test(int full);
 int		ft_putendl_fd_test(int full);
 int		ft_putnbr_fd_test(int full);
 
-//Print functions
+// Bonus functions
+int		ft_lstnew_test(int full);
+int		ft_lstlast_test(int full);
+int		ft_lstadd_back_test(int full);
+int		ft_lstadd_front_test(int full);
+int		ft_lstdelone_test(int full);
+int		ft_lstclear_test(int full);
+int		ft_lstiter_test(int full);
+int		ft_lstsize_test(int full);
+int		ft_lstmap_test(int full);
+
+// Print functions
 void	ft_print_success_short(int count);
 void	ft_print_success(int index);
 void	ft_print_fail(int index);
@@ -67,7 +80,7 @@ void	ft_print_mem(void *start, size_t n);
 void	ft_print_memchar(void *mem, size_t size);
 void	ft_print_memint(void *mem, size_t size);
 
-//Print input functions
+// Print input functions
 void	ft_print_input_int(int num);
 void	ft_print_input_intint(int num1, int num2);
 void	ft_print_input_str(char *str);
@@ -82,14 +95,14 @@ void	ft_print_input_voidsize(void *ptr, size_t n, size_t num);
 void	ft_print_input_voidintsize(void *ptr, size_t n, int num1, size_t num2);
 void	ft_print_input_voidvoidsize(void *ptr1, size_t n1, void *ptr2, size_t n2, size_t num);
 
-//Print output functions
+// Print output functions
 void	ft_print_test_int(int test, int ref);
 void	ft_print_test_size(size_t test, size_t ref);
 void	ft_print_test_str(char *test, char *ref);
 void	ft_print_test_strarr(char **test, char **ref);
 void	ft_print_test_void(void *test, void *ref, size_t size);
 
-//Visual fucntions
+// Visual fucntions
 void	ft_test_header(char *msg);
 
 #endif //LIBFT_TEST_H

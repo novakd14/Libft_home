@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 20:10:58 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 00:55:07 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,7 @@ int	ft_memcmp_test(int full)
 	check *= test_str(index++, full, name, "12345", "12343", 4);
 	check *= test_str(index++, full, name, "12345", "12343", 0);
 	check *= test_str(index++, full, name, "12345", NULL, 0);
-	check *= test_NULL(index++, full, name, "12345", NULL, 1, 1);
-	check *= test_NULL(index++, full, name, NULL, "12345", 1, -1);
+	check *= test_str(index++, full, name, NULL, "12345", 0);
 	check *= test_NULL(index++, full, name, NULL, NULL, 1, 0);
 
 

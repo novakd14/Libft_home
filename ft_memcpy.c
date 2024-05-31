@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:53:26 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 20:14:22 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 00:14:33 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char	*dptr;
 	size_t			i;
 
-	if (dest == NULL || src == NULL)
-		return (dest);
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	sptr = (unsigned char *) src;
 	dptr = (unsigned char *) dest;
 	i = 0;

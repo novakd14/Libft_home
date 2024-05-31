@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 10:54:31 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/31 11:48:58 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,41 @@ static void	ft_putfncinput(char *name, char *s, int c)
 	printf("\033[0m");
 }
 
+static int	test1(int index, int full, char *name, char *str, int c)
+{
+	// 1. Setting up input
+
+	// 2. TEST
+	int		check = 0;
+
+	char *users;
+	char *expect;
+
+	users = ft_strrchr(str, c);
+	expect = strrchr(str, c);
+	if (users == expect)
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput(name, str, c); //NEED to change this function
+		printf(" -> ");
+		printf("users: %p, expected: %p\n", users, expect); //NEED to change this print
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	if (check == 1)
+		return (1);
+	else
+		return (0);
+}
+
 // MAIN function for all tests
 int	ft_strrchr_test(int full)
 {
@@ -37,7 +72,9 @@ int	ft_strrchr_test(int full)
 	printf("\n\n");
 
 	// Tests -> add in format: check *= test1(index++, full, name);
-	ft_putfncinput(name, "String", 'i');
+	check *= test1(index++, full, name, "Ahohoj", 'h');
+	check *= test1(index++, full, name, "abcdefghijkl", 'h' + 256);
+	check *= test1(index++, full, name, "Ahoj", '\0');
 
 	// Check style of output and print end of section
 	if (index == 1)

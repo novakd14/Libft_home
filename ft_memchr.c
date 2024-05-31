@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:53:42 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 19:27:49 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/29 23:37:08 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*ptr;
 	size_t			i;
 
-	if (s == NULL)
-		return (NULL);
 	ptr = (unsigned char *) s;
 	i = 0;
 	while (i < n)

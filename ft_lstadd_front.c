@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 17:36:24 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/23 20:14:46 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/31 14:23:45 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if (new != NULL)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

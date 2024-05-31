@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 19:31:47 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 00:49:13 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,6 @@ int	ft_memchr_test(int full)
 	check *= test_str(index++, full, name, "1234547", '4', 3);
 	check *= test_str(index++, full, name, "1234547", '4', 0);
 	check *= test_str(index++, full, name, "12345", '6', 5);
-	check *= test_NULL(index++, full, name, NULL, '6', 5);
 
 	// Check style of output and print end of section
 	if (index == 1)

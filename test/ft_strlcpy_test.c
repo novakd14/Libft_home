@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 10:54:31 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/31 00:53:35 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,87 @@ static void	ft_putfncinput(char *name, char *dest, char *src, size_t n)
 	printf("\033[0m");
 }
 
+static int	test1(int index, int full, char *name, char *dest, char *src, size_t size, char *edest, size_t elen)
+{
+	// 1. Setting up input
+
+	// 2. TEST
+	int		check = 0;
+	char *udest = (char *) calloc(strlen(dest), sizeof (char));
+	if (udest == NULL)
+	{
+		ft_print_colored("MEM", "orange", 0);
+		printf("\tTest %i: malloc fail\n", index);
+		return (0);
+	}
+	udest = strcpy(udest, dest);
+	size_t ulen = ft_strlcpy(udest, src, size);
+	(void) ulen;
+	(void) elen;
+	if (strcmp(udest, edest) == 0)
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput(name, dest, src, size); //NEED to change this function
+		printf(" -> ");
+		printf("users: \"%s\", expected: \"%s\"\n", udest, edest); //NEED to change this print
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	free(udest);
+	if (check == 1)
+		return (1);
+	else
+		return (0);
+}
+
+static int	test2(int index, int full, char *name, char *dest, char *src, size_t size, char *edest, size_t elen)
+{
+	// 1. Setting up input
+
+	// 2. TEST
+	int		check = 0;
+	char *udest = (char *) calloc(strlen(dest), sizeof (char));
+	if (udest == NULL)
+	{
+		ft_print_colored("MEM", "orange", 0);
+		printf("\tTest %i: malloc fail\n", index);
+		return (0);
+	}
+	udest = strcpy(udest, dest);
+	(void) edest;
+	size_t ulen = ft_strlcpy(udest, src, size);
+	if (ulen == elen)
+		check = 1;
+
+	// 3. Print result of test
+	if (check == 0 || full == 1)
+	{
+		if (check == 1)
+			ft_print_colored("PASSED", "green", 0);
+		else
+			ft_print_colored("FAILED", "red", 0);
+		printf("\tTest %i: ", index);
+		ft_putfncinput(name, dest, src, size); //NEED to change this function
+		printf(" -> ");
+		printf("users: %li, expected: %li\n", ulen, elen); //NEED to change this print
+	}
+
+	// 4. Return value PASS/FAIL, and free all elements
+	free(udest);
+	if (check == 1)
+		return (1);
+	else
+		return (0);
+}
+
 // MAIN function for all tests
 int	ft_strlcpy_test(int full)
 {
@@ -37,7 +118,14 @@ int	ft_strlcpy_test(int full)
 	printf("\n\n");
 
 	// Tests -> add in format: check *= test1(index++, full, name);
-	ft_putfncinput(name, "Dest", "Src", 3);
+	check *= test1(index++, full, name, "123456789", "abcdef", 0, "123456789", 6);
+	check *= test1(index++, full, name, "123456789", "abcdef", 2, "a", 6);
+	check *= test1(index++, full, name, "123456789", "abcdef", 6, "abcde", 6);
+	check *= test1(index++, full, name, "123456789", "abcdef", 7, "abcdef", 6);
+	check *= test2(index++, full, name, "123456789", "abcdef", 0, "123456789", 6);
+	check *= test2(index++, full, name, "123456789", "abcdef", 2, "a", 6);
+	check *= test2(index++, full, name, "123456789", "abcdef", 6, "abcde", 6);
+	check *= test2(index++, full, name, "123456789", "abcdef", 7, "abcdef", 6);
 
 	// Check style of output and print end of section
 	if (index == 1)

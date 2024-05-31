@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 19:01:47 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 20:40:36 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,42 +58,6 @@ static int	test1(int index, int full, char *name, char *nptr)
 		return (0);
 }
 
-static int	testNULL(int index, int full, char *name)
-{
-	// 1. Setting up input
-
-	// 2. TEST
-	int check = 0;
-	int users = ft_atoi(NULL);
-	int expected = 0;
-
-	if (users == expected)
-		check = 1;
-
-	// 3. Print result of test
-	if (check == 0 || full == 1)
-	{
-		if (check == 1)
-			ft_print_colored("PASSED", "green", 0);
-		else
-			ft_print_colored("FAILED", "red", 0);
-		printf("\tTest %i: ", index);
-		printf("\033[36m");
-		printf("%s(%s)", name, "NULL");
-		printf("\033[0m");
-		printf(" -> ");
-		printf("users: %i, expected: %i; ", users, expected);
-		ft_print_colored("without segfault\n", "orange", 0); //NEED to change this print
-	}
-
-	// 4. Return value PASS/FAIL, and free all elements
-	if (check == 1)
-		return (1);
-	else
-		return (0);
-}
-
-
 // MAIN function for all tests
 int	ft_atoi_test(int full)
 {
@@ -118,7 +82,6 @@ int	ft_atoi_test(int full)
 	check *= test1(index++, full, name, "\t\n\v\f\r\t\n\v\f\r42");
 	check *= test1(index++, full, name, "++42");
 	check *= test1(index++, full, name, "--42");
-	check *= testNULL(index++, full, name);
 
 	// Check style of output and print end of section
 	if (index == 1)

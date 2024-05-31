@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:53:35 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 20:10:33 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 00:51:58 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	unsigned char	*ptr2;
 	size_t			i;
 
-	if (n == 0)
+	if (n == 0 || (s1 == NULL && s2 == NULL))
 		return (0);
-	if (s1 == NULL || s2 == NULL)
-	{
-		if (s1 != NULL)
-			return (*((unsigned char *) s1));
-		else if (s2 != NULL)
-			return (-*((unsigned char *) s2));
-		return (0);
-	}
 	ptr1 = (unsigned char *) s1;
 	ptr2 = (unsigned char *) s2;
 	i = 0;
