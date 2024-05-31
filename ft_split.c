@@ -6,11 +6,12 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:47:07 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/28 16:04:12 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/31 01:01:51 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static size_t	ft_count_words(char const *s, char c)
 {
@@ -19,14 +20,12 @@ static size_t	ft_count_words(char const *s, char c)
 
 	len = 0;
 	count = 0;
-	if (*(s + len) == c)
-		count++;
 	while (*(s + len))
 	{
-		if (*(s + len) == c && *(s + len))
+		while (*(s + len) != c && *(s + len))
 			len++;
 		count++;
-		while (*(s + len) != c && *(s + len))
+		while (*(s + len) == c && *(s + len))
 			len++;
 	}
 	return (count);
@@ -65,38 +64,40 @@ static char	**ft_pop_array(char **array, char const *s, char c)
 	size_t	len;
 
 	count = 0;
-	if (*s == c)
-	{
-		*array = (char *) malloc(sizeof (char));
-		if (ft_check_array(array, 0) == 0)
-			return (NULL);
-		count++;
-	}
 	i = 0;
 	while (*(s + i))
 	{
-		if (*(s + i) == c)
-			i++;
 		len = ft_strlen_del(s + i, c);
-		*(array + count) = (char *) malloc(sizeof (char) * (len + 1));
+		*(array + count) = (char *) ft_calloc(len + 1, sizeof (char));
 		if (ft_check_array(array, count) == 0)
 			return (NULL);
-		ft_strlcpy(*(array + count), s + i, len + 1);
+		ft_strlcpy(*(array + count++), s + i, len + 1);
 		i += len;
+		while (*(s + i) == c && *(s + i))
+			i++;
 	}
 	return (array);
 }
 
 // Not happy with it!
+// Allocates (with malloc(3)) and returns an array of strings obtained by
+// splitting ’s’ using the character ’c’ as a delimiter. The array must end
+// with a NULL pointer.
+// RETURN VALUE: The array of new strings resulting from the split. NULL if the
+// allocation fails.
 char	**ft_split(char const *s, char c)
 {
 	size_t	count;
+	size_t	skip;
 	char	**array;
 
-	count = ft_count_words(s, c);
-	array = (char **) malloc(sizeof (char *) * (count + 1));
+	skip = 0;
+	while (*(s + skip) == c && *(s + skip))
+		skip++;
+	count = ft_count_words(s + skip, c);
+	array = (char **) ft_calloc(count + 1, sizeof (char *));
 	if (array == NULL)
 		return (NULL);
 	*(array + count) = NULL;
-	return (ft_pop_array(array, s, c));
+	return (ft_pop_array(array, s + skip, c));
 }

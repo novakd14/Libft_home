@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 18:52:56 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 00:57:19 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,9 +136,6 @@ int	ft_calloc_test(int full)
 	check *= testNULLout(index++, full, name, 4294967296, 4294967296);
 	check *= testNULLout(index++, full, name, 2, 9223372036854775807);
 	check *= testNULLout(index++, full, name, 9223372036854775807, 2);
-	check *= testNULLout(index++, full, name, 0, 0);
-	check *= testNULLout(index++, full, name, 10, 0);
-	check *= testNULLout(index++, full, name, 0, 10);
 
 	// Check style of output and print end of section
 	if (index == 1)

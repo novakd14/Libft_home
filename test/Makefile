@@ -8,7 +8,9 @@ SRCS = main_test.c print_fnc.c visual_fnc.c ft_isalpha_test.c ft_isdigit_test.c 
 	ft_strrchr_test.c ft_strncmp_test.c ft_memchr_test.c ft_memcmp_test.c ft_strnstr_test.c \
 	ft_atoi_test.c ft_calloc_test.c ft_strdup_test.c ft_substr_test.c ft_strjoin_test.c \
 	ft_strtrim_test.c ft_split_test.c ft_itoa_test.c ft_strmapi_test.c ft_striteri_test.c \
-	ft_putchar_fd_test.c ft_putstr_fd_test.c ft_putendl_fd_test.c ft_putnbr_fd_test.c
+	ft_putchar_fd_test.c ft_putstr_fd_test.c ft_putendl_fd_test.c ft_putnbr_fd_test.c \
+	ft_lstnew_test.c ft_lstlast_test.c ft_lstadd_back_test.c ft_lstadd_front_test.c ft_lstdelone_test.c \
+	ft_lstclear_test.c ft_lstiter_test.c ft_lstsize_test.c ft_lstmap_test.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -25,7 +27,7 @@ fclean: clean
 re: fclean all
 
 libft.a:
-	make -C ../
+	make -C ../ bonus
 
 test: $(NAME)
 	clear
@@ -37,3 +39,4 @@ ftest: $(NAME)
 
 memleak: $(NAME)
 	valgrind --leak-check=full ./$(NAME)
+#	valgrind -s --leak-check=full ./$(NAME)

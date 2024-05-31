@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 23:53:52 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/29 18:22:04 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/05/30 23:21:55 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+	{
+		nmemb = 1;
+		size = 0;
+	}
 	if (9223372036854775807 / nmemb < size)
 		return (NULL);
 	ptr = malloc(nmemb * size);
