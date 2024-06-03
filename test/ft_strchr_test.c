@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/30 22:11:57 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/06/03 09:44:19 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static int	test1(int index, int full, char *name, char *str, int c)
 
 	// 2. TEST
 	int		check = 0;
-	size_t	i = 0;
 
 	char *users;
 	char *expect;

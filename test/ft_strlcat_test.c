@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/31 02:23:58 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/06/03 09:54:22 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ static int	test1(int index, int full, char *name, char *dest, char *src, size_t 
 
 	// 2. TEST
 	int		check = 0;
-	char *udest = (char *) calloc(size, sizeof (char));
+	char *udest;
+	if (size <= strlen(dest))
+		udest = (char *) calloc(strlen(dest) + 1, sizeof (char));
+	else
+		udest = (char *) calloc(size, sizeof (char));
 	if (udest == NULL)
 	{
 		ft_print_colored("MEM", "orange", 0);
@@ -72,7 +76,11 @@ static int	test2(int index, int full, char *name, char *dest, char *src, size_t 
 
 	// 2. TEST
 	int		check = 0;
-	char *udest = (char *) calloc(size, sizeof (char));
+	char *udest;
+	if (size <= strlen(dest))
+		udest = (char *) calloc(strlen(dest) + 1, sizeof (char));
+	else
+		udest = (char *) calloc(size, sizeof (char));
 	if (udest == NULL)
 	{
 		ft_print_colored("MEM", "orange", 0);

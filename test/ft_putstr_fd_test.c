@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/30 02:23:51 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/06/03 09:45:34 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 #include "libft_test.h"
 
 // Print inputs of tested function
-static void	ft_putfncinput(char *name, char *s, int fd)
+static void	ft_putfncinput(char *name, char *s, char *fd)
 {
 	printf("\033[36m");
-	printf("%s(\"%s\", %i)", name, s, fd);
+	printf("%s(\"%s\", %s)", name, s, fd);
 	printf("\033[0m");
 }
 

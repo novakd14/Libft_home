@@ -38,5 +38,5 @@ ftest: $(NAME)
 	./$(NAME) full
 
 memleak: $(NAME)
-	valgrind --leak-check=full ./$(NAME)
-#	valgrind -s --leak-check=full ./$(NAME)
+	valgrind -s --leak-check=full ./$(NAME)
+# valgrind --leak-check=full ./$(NAME)
