@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/30 02:23:40 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/06/03 10:06:44 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	test1(int index, int full, char *name, char *s)
 	buf[len + 1] = '\0';
 	read(fd, buf, len + 1);
 	close(fd);
-	if (strcmp(buf, s) ==  '\n')
+	if (strncmp(buf, s, len) ==  0 && buf[len] == '\n')
 		check = 1;
 
 	// 3. Print result of test

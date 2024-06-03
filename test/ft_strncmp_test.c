@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:45:56 by dnovak            #+#    #+#             */
-/*   Updated: 2024/05/31 02:28:55 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/06/03 09:59:08 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	test1(int index, int full, char *name, char *s1, char *s2, size_t n)
 	int		check = 0;
 	int users = ft_strncmp(s1, s2, n);
 	int expect = strncmp(s1, s2, n);
-	if (users == expect)
+	if (SIGN(users) == SIGN(expect))
 		check = 1;
 
 	// 3. Print result of test
