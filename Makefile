@@ -15,7 +15,7 @@ HEAD = libft.h
 OBJS = $(SRCS:.c=.o)
 O_BONS = $(BONS:.c=.o)
 
-.PHONY: all clean fclean re bonus bclean cleanall norm
+.PHONY: all clean fclean re bonus norm
 
 all: $(NAME)
 
@@ -23,7 +23,7 @@ $(NAME): $(OBJS) $(HEAD)
 	ar -crs $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	rm -f *.o
 
 fclean: clean
 	rm -f $(NAME)
@@ -32,12 +32,6 @@ re: fclean all
 
 bonus: $(OBJS) $(O_BONS)
 	ar -crs $(NAME) $(OBJS) $(O_BONS)
-
-bclean: clean
-	rm -f $(O_BONS)
-
-cleanall: bclean
-	rm -f $(NAME)
 
 norm: all fclean
 	norminette $(SRCS) $(BONS) $(HEAD)
