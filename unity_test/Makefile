@@ -2,10 +2,8 @@ CC = cc
 # CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = test.exe
-NAMEREF = test_ref.exe
-SRCS = unity.c test_ft_printf.c
-SRCSREF = unity.c test_printf.c
-LIBS = ../libftprintf.a
+SRCS = unity.c test_libft.c
+LIBS = ../libft.a
 OBJS = $(SRCS:.c=.o)
 OBJSREF = $(SRCSREF:.c=.o)
 
