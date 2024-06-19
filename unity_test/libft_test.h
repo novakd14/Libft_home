@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf_test.h                                 :+:      :+:    :+:   */
+/*   libft_test.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 16:44:22 by dnovak            #+#    #+#             */
-/*   Updated: 2024/06/09 14:35:59 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/06/19 18:09:13 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_TEST_H
 # define LIBFTPRINTF_TEST_H
-# include "../libftprintf.h"
+# include "../libft.h"
 # include "unity.h"
 # include <fcntl.h>  // flags for open
 # include <stdio.h>  // printf, fflush
