@@ -5,17 +5,13 @@ NAME = test.exe
 SRCS = unity.c test_libft.c
 LIBS = ../libft.a
 OBJS = $(SRCS:.c=.o)
-OBJSREF = $(SRCSREF:.c=.o)
 
 .PHONY: all clean fclean re lib test memleak
 
-all: $(NAME) $(NAMEREF)
+all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBS)
 	$(CC) -o $(NAME) $(OBJS) $(LIBS)
-
-$(NAMEREF): $(OBJSREF) $(LIBS)
-	$(CC) -o $(NAMEREF) $(OBJSREF) $(LIBS)
 
 clean:
 	rm -f $(OBJS)
