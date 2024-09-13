@@ -57,8 +57,8 @@ void	tearDown(void)
 
 void	test_ft_atoi_emptyString(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 0;
 	given_len = ft_atoi("");
@@ -67,8 +67,8 @@ void	test_ft_atoi_emptyString(void)
 
 void	test_ft_atoi_zero(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 0;
 	given_len = ft_atoi("0");
@@ -77,8 +77,8 @@ void	test_ft_atoi_zero(void)
 
 void	test_ft_atoi_minusZero(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 0;
 	given_len = ft_atoi("-0");
@@ -87,8 +87,8 @@ void	test_ft_atoi_minusZero(void)
 
 void	test_ft_atoi_plusZero(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 0;
 	given_len = ft_atoi("+0");
@@ -97,8 +97,8 @@ void	test_ft_atoi_plusZero(void)
 
 void	test_ft_atoi_one(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 1;
 	given_len = ft_atoi("1");
@@ -107,8 +107,8 @@ void	test_ft_atoi_one(void)
 
 void	test_ft_atoi_minusTen(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = -10;
 	given_len = ft_atoi("-10");
@@ -117,8 +117,8 @@ void	test_ft_atoi_minusTen(void)
 
 void	test_ft_atoi_plusHundred(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 100;
 	given_len = ft_atoi("+100");
@@ -127,8 +127,8 @@ void	test_ft_atoi_plusHundred(void)
 
 void	test_ft_atoi_maxInt(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = MAX_INT;
 	given_len = ft_atoi("2147483647");
@@ -137,8 +137,8 @@ void	test_ft_atoi_maxInt(void)
 
 void	test_ft_atoi_minInt(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = MIN_INT;
 	given_len = ft_atoi("-2147483648");
@@ -147,8 +147,8 @@ void	test_ft_atoi_minInt(void)
 
 void	test_ft_atoi_spaces(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 42;
 	given_len = ft_atoi("\t\n\v\f\r\t\n\v\f\r42");
@@ -157,8 +157,8 @@ void	test_ft_atoi_spaces(void)
 
 void	test_ft_atoi_twoPlus(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 0;
 	given_len = ft_atoi("++42");
@@ -167,8 +167,8 @@ void	test_ft_atoi_twoPlus(void)
 
 void	test_ft_atoi_twoMinus(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 0;
 	given_len = ft_atoi("--42");
@@ -177,8 +177,8 @@ void	test_ft_atoi_twoMinus(void)
 
 void	test_ft_atoi_wierdEnd(void)
 {
-	int		expect_len;
-	int		given_len;
+	int	expect_len;
+	int	given_len;
 
 	expect_len = 12305;
 	given_len = ft_atoi("12305a1");
