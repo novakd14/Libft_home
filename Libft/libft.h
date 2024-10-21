@@ -6,14 +6,14 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:14:54 by dnovak            #+#    #+#             */
-/*   Updated: 2024/10/21 12:37:41 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/10/21 15:20:17 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdlib.h>
-# include <unistd.h>
+# include <stdlib.h> // malloc, free
+# include <unistd.h> // read
 
 typedef struct s_list
 {
@@ -69,8 +69,9 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-// Printf
+// Extra functions
 int					ft_printf(const char *format, ...);
+char				*get_next_line(int fd);
 
 // Utils
 unsigned long		ft_umin(unsigned long a, unsigned long b);
