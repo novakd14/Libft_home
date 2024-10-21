@@ -6,11 +6,11 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 20:09:46 by dnovak            #+#    #+#             */
-/*   Updated: 2024/06/20 15:47:09 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/10/21 11:56:11 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 unsigned long	ft_umin(unsigned long a, unsigned long b)
 {
