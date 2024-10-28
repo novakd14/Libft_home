@@ -6,13 +6,13 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:33:13 by dnovak            #+#    #+#             */
-/*   Updated: 2024/10/26 21:39:22 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/10/29 00:00:19 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	check_sign(const char *nptr, int *i)
+static int	check_sign(const char *nptr, size_t *i)
 {
 	if (*nptr == '+' || *nptr == '-')
 	{
@@ -23,7 +23,7 @@ static int	check_sign(const char *nptr, int *i)
 	return (1);
 }
 
-static int	check_base(int base, const char *nptr, int *i)
+static int	check_base(int base, const char *nptr, size_t *i)
 {
 	if (base == 0)
 	{
@@ -70,7 +70,7 @@ static long	new_num(long num, int sign, int c, int base)
 	if (num > __LONG_MAX__ / base && sign == 1)
 		return (__LONG_MAX__);
 	if (num > __LONG_MAX__ / base && sign == -1)
-		return (__LONG_MAX__ + 1);
+		return (-__LONG_MAX__ - 1);
 	num *= base;
 	if (ft_isdigit(c))
 		add = c - '0';
@@ -81,7 +81,7 @@ static long	new_num(long num, int sign, int c, int base)
 	if (num >= __LONG_MAX__ - add && sign == 1)
 		return (__LONG_MAX__);
 	if (num > __LONG_MAX__ - add && sign == -1)
-		return (__LONG_MAX__ + 1);
+		return (-__LONG_MAX__ - 1);
 	return (num);
 }
 
@@ -125,7 +125,7 @@ long	ft_strtol(const char *nptr, char **endptr, int base)
 	while (ft_isbase(*(nptr + i), base))
 		num = new_num(num, sign, *(nptr + i++), base);
 	if (endptr != NULL)
-		*endptr = nptr + i;
+		*endptr = (char *)nptr + i;
 	if (num < 0)
 		return (num);
 	return (num * sign);
