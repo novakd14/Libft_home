@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 14:14:54 by dnovak            #+#    #+#             */
-/*   Updated: 2024/10/26 23:14:46 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/10/29 01:39:55 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ unsigned long		ft_umin(unsigned long a, unsigned long b);
 unsigned long		ft_umax(unsigned long a, unsigned long b);
 long				ft_min(long a, long b);
 long				ft_max(long a, long b);
+long				ft_abs(long a);
 
 #endif // LIBFT_H
