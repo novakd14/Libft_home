@@ -6,7 +6,7 @@
 /*   By: dnovak <dnovak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:33:13 by dnovak            #+#    #+#             */
-/*   Updated: 2024/10/29 00:00:19 by dnovak           ###   ########.fr       */
+/*   Updated: 2024/10/29 01:24:59 by dnovak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ static long	new_num(long num, int sign, int c, int base)
 		return (__LONG_MAX__);
 	if (num > __LONG_MAX__ - add && sign == -1)
 		return (-__LONG_MAX__ - 1);
-	return (num);
+	return (num + add);
 }
 
 // The strtol(void) function converts the initial part of the string in nptr to
